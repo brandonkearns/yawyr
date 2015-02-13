@@ -46,6 +46,35 @@ RSpec.describe User, type: :model do
           user.email = 'b' * 255
         end
       end
+
+      context 'valid format' do
+        it 'is valid' do
+          valid_addresses = %w{ user@zoo.COM B_SK-IN@t.z.org are.spec@ton.cn g+8@zen.io f@b.co }
+          valid_addresses.each do |address|
+            user.email = address
+            expect(user).to be_valid
+          end
+        end
+      end
+
+      context 'not unique' do
+        before do
+          user_with_same_email = user.dup
+          user_with_same_email.save
+
+          it { should_not be_valid }
+        end
+      end
+
+      context 'mixed case' do
+        it 'is saved as lowercase' do
+          mixed_case_email = 'rEaDEr@wyRD.coM'
+          user.email = mixed_case_email
+          user.save
+
+          expect(user.reload.email).to eq(mixed_case_email.downcase)
+        end
+      end
     end
   end
 end
