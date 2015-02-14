@@ -41,4 +41,47 @@ RSpec.describe UsersController, type: :controller do
       end
     end
   end
+
+  describe 'GET #show' do
+    let(:user) { User.create(name: "Brandon Kearns", email: "brandon.j.kearns@gmail.com", password: "foobar", password_confirmation: "foobar") }
+
+    it 'renders show' do
+      get :show, id: user.id
+      expect(response).to render_template(:show)
+    end
+
+    it 'assigns correct user' do
+      get :show, id: user.id
+      expect(assigns(:user)).to eq(user)
+    end
+  end
+
+  describe 'GET #index' do
+    let(:user1) { User.create(name: "Brandon Kearns", email: "brandon.j.kearns@gmail.com", password: "foobar", password_confirmation: "foobar") }
+    let(:user2) { User.create(name: "Huey Newton", email: "fro@panthers.com", password: "frobar", password_confirmation: "frobar") }
+
+    it 'renders index' do
+      get :index
+      expect(response).to render_template(:index)
+    end
+
+    it 'populates an array of users' do
+      get :index
+      expect(assigns(:users)).to eq([user1, user2])
+    end
+  end
+
+  describe 'GET #edit' do
+    let(:edited_user) { User.create(name: "Brandon Kearns", email: "brandon.j.kearns@gmail.com", password: "foobar", password_confirmation: "foobar") }
+
+    it 'renders edit' do
+      get :edit, id: edited_user.id
+      expect(response).to render_template(:edit)
+    end
+
+    it 'assigns correct user' do
+      get :edit, id: edited_user.id
+      expect(assigns(:user)).to eq(edited_user)
+    end
+  end
 end
