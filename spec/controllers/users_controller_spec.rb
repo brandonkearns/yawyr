@@ -84,4 +84,48 @@ RSpec.describe UsersController, type: :controller do
       expect(assigns(:user)).to eq(edited_user)
     end
   end
+
+  describe 'PATCH #update' do
+    let(:updated_user) { User.create(name: "Brandon Kearns", email: "brandon.j.kearns@gmail.com", password: "foobar", password_confirmation: "foobar") }
+
+    context 'valid attributes' do
+      it 'updates user' do
+        patch :update, id: updated_user.id, user: { name: "B Kearns" }
+        updated_user.reload
+        expect(updated_user.name).to eq("B Kearns")
+      end
+
+      it 'redirects to users#show' do
+        patch :update, id: updated_user.id, user: { name: "B Kearns" }
+        expect(response).to redirect_to(user_path(updated_user.id))
+      end
+    end
+
+    context 'invalid attributes' do
+      it 'does not update user' do
+        patch :update, id: updated_user.id, user: { name: "" }
+        updated_user.reload
+        expect(updated_user.name).to eq("Brandon Kearns")
+      end
+
+      it 're-renders edit' do
+        patch :update, id: updated_user.id, user: { name: "" }
+        expect(response).to render_template(:edit)
+      end
+    end
+  end
+
+  describe 'DELETE #destroy' do
+    let(:unwise_user) { User.create(name: "Stew Pid", email: "bone@head.com", password: "justtextme", password_confirmation: "justtextme") }
+
+    it 'deletes selected user' do
+      unwise_user = User.create(name: "Stew Pid", email: "bone@head.com", password: "justtextme", password_confirmation: "justtextme")
+      expect{delete :destroy, id: unwise_user.id}.to change(User,:count).by(-1) 
+    end
+
+    it 'redirects to index' do
+      delete :destroy, id: unwise_user.id
+      expect(response).to redirect_to(users_path)
+    end
+  end
 end

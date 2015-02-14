@@ -6,8 +6,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.save #add condition for successful register(sign up)
-    render 'new'
+    if @user.save #add condition for successful register(sign up)
+      flash[:success] = "Let's get wyrd!"
+      redirect_to user_path @user
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -23,9 +27,19 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = "You've really changed - but you're still wyrd."
+      redirect_to user_path @user
+    else
+      render 'edit'
+    end
   end
 
   def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to users_path
   end
 
   private
