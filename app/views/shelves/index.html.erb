@@ -1,0 +1,13 @@
+<% provide(:title, @shelf) %>
+<h1>My Shelves</h1>
+
+<ul>
+  <% @shelves.each do |shelf| %>
+    <li>
+      <%= link_to shelf.name, shelf_path(shelf.id) %> 
+      <% if current_user?(@shelves) %>
+      | <%= link_to "delete", shelf, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
