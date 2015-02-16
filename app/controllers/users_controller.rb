@@ -6,7 +6,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save #add condition for successful register(sign up)
+    if @user.save #add condition for successful register(sign in)
+      sign_in @user
       flash[:success] = "Let's get wyrd!"
       redirect_to user_path @user
     else
