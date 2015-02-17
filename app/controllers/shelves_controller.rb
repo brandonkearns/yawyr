@@ -8,7 +8,7 @@ class ShelvesController < ApplicationController
   end
 
   def show
-    @shelf = Shelf.find(params[:id])
+    # @shelf = Shelf.find(params[:id])
   end
 
   def new
@@ -26,12 +26,12 @@ class ShelvesController < ApplicationController
   end
 
   def edit
-    @shelf = Shelf.find(params[:id])
+    # @shelf = Shelf.find(params[:id])
   end
 
   def update
     if @shelf.update_attributes(shelf_params)
-      flash[:success] = "Your #{shelf.name} shelf has been updated."
+      flash[:success] = "Your #{@shelf.name} shelf has been updated."
       redirect_to shelf_path(@shelf.id)
     else
       render 'edit'
@@ -40,7 +40,7 @@ class ShelvesController < ApplicationController
 
   def destroy
     @shelf.destroy
-    flash[:success] = "You have removed your #{shelf.name} shelf."
+    flash[:success] = "You have removed your #{@shelf.name} shelf."
     redirect_to shelves_path
   end
 
