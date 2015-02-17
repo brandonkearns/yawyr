@@ -31,6 +31,9 @@ RSpec.describe ShelvesController, type: :controller do
   end
 
   describe 'GET #new' do
+    let(:user) { FactoryGirl.create(:user) }
+    before { sign_in user, no_capybara: true }
+
     it 'renders new' do
       get :new
       expect(response).to render_template(:new)
@@ -43,7 +46,10 @@ RSpec.describe ShelvesController, type: :controller do
   end
 
   describe 'GET #edit' do
-    let(:edited_shelf) { Shelf.create(name: "Self-Help") }
+    let(:user) { FactoryGirl.create(:user) }
+    before { sign_in user, no_capybara: true }
+
+    let(:edited_shelf) { Shelf.create(name: "Self-Help", user_id: user.id) }
 
     it 'renders edit' do
       get :edit, id: edited_shelf.id
@@ -52,29 +58,30 @@ RSpec.describe ShelvesController, type: :controller do
 
     it 'assigns correct shelf' do
       get :edit, id: edited_shelf.id
-      expect(assigns(:item)).to eq(edited_shelf)
+      expect(assigns(:shelf)).to eq(edited_shelf)
     end
   end
 
   describe 'POST #create' do
-    context 'valid attributes' do
-      let(:valid_attributes) { { name: "Test Shelf" } }
+    let(:user) { FactoryGirl.create(:user) }
+    before { sign_in user, no_capybara: true }
 
+    context 'valid attributes' do
       it 'creates a new shelf' do
-        expect{post :create, shelf: valid_attributes}.to change(Shelf, :count).by(1)
+        expect{post :create, shelf: FactoryGirl.attributes_for(:shelf, user_id: user.id)}.to change(Shelf, :count).by(1)
       end
 
       it 'redirects to shelves#index' do
-        post :create, shelf: valid_attributes
-        expect(response).to redirect_to(items_path)
+        post :create, shelf: FactoryGirl.attributes_for(:shelf, user_id: user.id)
+        expect(response).to redirect_to(shelves_path)
       end
     end
 
     context 'invalid attributes' do
-      let(:invalid_attributes) { { name: "" } }
+      let(:invalid_attributes) { { name: "F" } }
 
       it 'does not create new shelf' do
-        expect{post :create, item: invalid_attributes}.to_not change(Shelf, :count)
+        expect{post :create, shelf: invalid_attributes}.to_not change(Shelf, :count)
       end
 
       it 're-renders new' do
@@ -85,7 +92,10 @@ RSpec.describe ShelvesController, type: :controller do
   end
 
   describe 'PATCH #update' do
-    let(:edited_shelf) { Shelf.create(name: "Programming") }
+    let(:user) { FactoryGirl.create(:user) }
+    before { sign_in user, no_capybara: true }
+
+    let(:edited_shelf) { FactoryGirl.create(:shelf, name: "Programming", user: user) }
 
     context 'valid attributes' do
       it 'updates shelf name' do
@@ -109,15 +119,19 @@ RSpec.describe ShelvesController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
+    let(:user) { FactoryGirl.create(:user) }
+    before { sign_in user, no_capybara: true }
+
+
     it 'deletes selected shelf' do
-      unwanted_shelf = Shelf.create(name: "Non-fiction")
+      unwanted_shelf = FactoryGirl.create(:shelf, user_id: user.id)
       expect{delete :destroy, id: unwanted_shelf.id}.to change(Shelf, :count).by(-1)
     end
 
     it 'redirects to index' do
-      unwanted_shelf = Shelf.create(name: "Non-fiction")
+      unwanted_shelf = FactoryGirl.create(:shelf, user_id: user.id)
       delete :destroy, id: unwanted_shelf.id
-      expect(response).to redirect_to(items_path)
+      expect(response).to redirect_to(shelves_path)
     end
   end
 end
