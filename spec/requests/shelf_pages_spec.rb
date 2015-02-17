@@ -9,13 +9,15 @@ describe 'shelf pages' do
     let(:shelf1) { Shelf.create(name: "Fiction") }
     let(:shelf2) { Shelf.create(name: "Fantasy") }
 
+    before { sign_in user }
+
     before { visit shelves_path }
 
     it { should have_title('My Shelves') }
     it { should have_selector('h1', text: 'My Shelves') }
 
     it 'lists each shelf' do
-      Shelves.all.each do |shelf|
+      Shelf.all.each do |shelf|
         expect(page).to have_selector('li', text: shelf.name)
       end
     end
@@ -52,8 +54,8 @@ describe 'shelf pages' do
       visit new_shelf_path
     end
 
-    it { should have_title('New Shelf') }
-    it { should have_selector('h1', 'New Shelf')}
+    it { should have_title('Add Shelf') }
+    it { should have_selector('h1', 'Add Shelf')}
 
     describe 'create shelf' do
       let(:submit) { 'Save' }
@@ -82,7 +84,7 @@ describe 'shelf pages' do
         describe 'after submission' do
           before { click_button submit }
 
-          it { should have_title('New Shelf') }
+          it { should have_title('Add Shelf') }
           it { should have_content('error') } 
         end
       end
@@ -102,7 +104,7 @@ describe 'shelf pages' do
     it { should have_selector('h1', 'Edit Shelf') }
 
     describe 'update shelf' do
-      let(:submit) { 'Save'}
+      let(:submit) { 'Save' }
 
       context 'valid information' do
 
