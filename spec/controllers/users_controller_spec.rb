@@ -73,6 +73,7 @@ RSpec.describe UsersController, type: :controller do
 
   describe 'GET #edit' do
     let(:edited_user) { User.create(name: "Brandon Kearns", email: "brandon.j.kearns@gmail.com", password: "foobar", password_confirmation: "foobar") }
+    before { sign_in edited_user }
 
     it 'renders edit' do
       get :edit, id: edited_user.id

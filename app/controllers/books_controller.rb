@@ -15,6 +15,15 @@ class BooksController < ApplicationController
     #search function
   end
 
+  def create
+    @book = current_user.books.new(book_params)
+    if @book.save
+      flash[:success] = "#{@book.title} has been added to your #{@shelf.name} shelf!"
+    else
+      render 'new'
+    end
+  end
+
   def edit
   end
 
@@ -27,16 +36,11 @@ class BooksController < ApplicationController
     end
   end
 
-  def create
-    @book = current_user.books.new(book_params)
-    if @book.save
-      flash[:success] = "#{@book.title} has been added to your #{@shelf.name} shelf!"
-    else
-      render 'new'
-    end
-  end
 
   def destroy
+    @book.destroy
+    flash[:success] = "#{@book.title} has been taken down."
+    redirect_to books_path
   end
 
   private
