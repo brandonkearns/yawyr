@@ -121,18 +121,11 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
-    let(:unwise_user) { User.create(name: "Stew Pid", email: "bone@head.com", password: "justtextme", password_confirmation: "justtextme") }
-
-    it 'deletes selected user' do
-      unwise_user = User.create(name: "Stew Pid", email: "bone@head.com", password: "justtextme", password_confirmation: "justtextme")
-      sign_in unwise_user, no_capybara: true
-      expect{delete :destroy, id: unwise_user.id}.to change(User,:count).by(-1) 
-    end
-
     it 'redirects to index' do
+      unwise_user = FactoryGirl.create(:user)
       sign_in unwise_user, no_capybara: true
       delete :destroy, id: unwise_user.id
-      expect(response).to redirect_to(users_path)
+      expect(response).to redirect_to(root_path)
     end
   end
 end
