@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
-
+  resources :books
   resources :shelves
   resources :users,     except:   [:new]
   resources :sessions,  only:     [:create]
