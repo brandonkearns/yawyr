@@ -73,7 +73,8 @@ RSpec.describe UsersController, type: :controller do
 
   describe 'GET #edit' do
     let(:edited_user) { User.create(name: "Brandon Kearns", email: "brandon.j.kearns@gmail.com", password: "foobar", password_confirmation: "foobar") }
-    before { sign_in edited_user }
+    
+    before { sign_in edited_user, no_capybara: true }
 
     it 'renders edit' do
       get :edit, id: edited_user.id
@@ -88,6 +89,9 @@ RSpec.describe UsersController, type: :controller do
 
   describe 'PATCH #update' do
     let(:updated_user) { User.create(name: "Brandon Kearns", email: "brandon.j.kearns@gmail.com", password: "foobar", password_confirmation: "foobar") }
+
+    before { sign_in updated_user, no_capybara: true }
+
 
     context 'valid attributes' do
       it 'updates user' do
@@ -121,10 +125,12 @@ RSpec.describe UsersController, type: :controller do
 
     it 'deletes selected user' do
       unwise_user = User.create(name: "Stew Pid", email: "bone@head.com", password: "justtextme", password_confirmation: "justtextme")
+      sign_in unwise_user, no_capybara: true
       expect{delete :destroy, id: unwise_user.id}.to change(User,:count).by(-1) 
     end
 
     it 'redirects to index' do
+      sign_in unwise_user, no_capybara: true
       delete :destroy, id: unwise_user.id
       expect(response).to redirect_to(users_path)
     end
