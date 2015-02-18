@@ -12,4 +12,8 @@ module BooksHelper
     image_tag book['volumeInfo']['imageLinks']['thumbnail'], options
   end
 
+  def snippet(book)
+    book["searchInfo"]
+  end
+
 end
