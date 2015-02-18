@@ -17,11 +17,15 @@ module BooksHelper
   end
 
   def images?(book)
-    !!image_url(book)
+    !!book['volumeInfo']['imageLinks']
   end
 
   def thumbnail_url(book)
-    book['volumeInfo']['imageLinks']['thumbnail']
+    images?(book) ? book['volumeInfo']['imageLinks']['thumbnail'] : 'no image'
+  end
+
+  def page_count(book)
+    book['volumeInfo']['pageCount']
   end
 
 end

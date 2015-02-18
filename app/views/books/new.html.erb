@@ -11,6 +11,7 @@
   <h2><%= authors(book) %></h2>
   <%= thumbnail(book, { height: '250px' }) %>
   <h2><%= snippet(book) %></h2>
+  <h2><%= page_count(book) %></h2>
 
   <%= form_for(:book, url: books_path) do |f| %>
     <%= f.select(:shelf_id, options_for_select(current_user.shelves.map { |s| [s.name, s.id] }))  %>
