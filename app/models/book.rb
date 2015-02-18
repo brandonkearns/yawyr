@@ -2,7 +2,7 @@ class Book < ActiveRecord::Base
   belongs_to :shelf
   belongs_to :user
 
-  validates :pages_read, presence: true
+  validates :title, presence: true
 
   def self.search(query)
     term = query ? query.split.join("+") : "1984"

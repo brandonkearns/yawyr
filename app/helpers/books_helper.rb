@@ -1,6 +1,6 @@
 module BooksHelper
   def title(book)
-    "Title: #{book['volumeInfo']['title']}"
+    book['volumeInfo']['title']
   end
 
   def authors(book)
@@ -9,11 +9,19 @@ module BooksHelper
   end
 
   def thumbnail(book, options={})
-    image_tag book['volumeInfo']['imageLinks']['thumbnail'], options
+    images?(book) ? (image_tag thumbnail_url(book), options) : 'no image'
   end
 
   def snippet(book)
     book["searchInfo"]
+  end
+
+  def images?(book)
+    !!image_url(book)
+  end
+
+  def thumbnail_url(book)
+    book['volumeInfo']['imageLinks']['thumbnail']
   end
 
 end
