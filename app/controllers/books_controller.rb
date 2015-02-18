@@ -18,7 +18,8 @@ class BooksController < ApplicationController
   def create
     @book = current_user.books.new(book_params)
     if @book.save
-      flash[:success] = "#{@book.title} has been added to your #{@shelf.name} shelf!"
+      flash[:success] = "#{@book.title} has been added to your shelf!"
+      redirect_to books_path
     else
       render 'new'
     end
@@ -36,7 +37,6 @@ class BooksController < ApplicationController
     end
   end
 
-
   def destroy
     @book.destroy
     flash[:success] = "#{@book.title} has been taken down."
@@ -44,6 +44,7 @@ class BooksController < ApplicationController
   end
 
   private
+
     def book_params
       params.require(:book).permit(:title, :author, :thumbnail, :page_count, :pages_read)
     end
