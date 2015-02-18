@@ -1,0 +1,13 @@
+<%= form_tag new_book_path, :method => 'get' do %>
+  <%= text_field_tag :query, params[:query] %>
+  <%= submit_tag 'Search' %>
+<% end %>
+
+<br>
+
+
+<% @books["items"].each do |book| %>
+  <h2><%= title(book) %></h2>
+  <h2><%= authors(book) %></h2>
+  <%= thumbnail(book, { height: '50px' }) %>
+<% end %>

@@ -11,7 +11,9 @@ class BooksController < ApplicationController
   end
 
   def new
-    @book = Book.new
+    # @book = Book.new
+    @books = Book.search(params[:query])
+
     #search function
   end
 

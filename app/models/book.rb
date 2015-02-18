@@ -1,6 +1,12 @@
 class Book < ActiveRecord::Base
   belongs_to :shelf
-  has_many :users, through: :shelves
+  belongs_to :user
 
   validates :pages_read, presence: true
+
+  def self.search(query)
+    term = query ? query.split.join("+") : "1984"
+    results = HTTParty.get "https://www.googleapis.com/books/v1/volumes?q=#{term}&key=AIzaSyAGU5ZaUS5jtOHW761FF38i9pJNmZS3NNA"
+  end
+
 end

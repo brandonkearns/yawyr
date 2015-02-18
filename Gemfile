@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'httparty'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
@@ -48,6 +48,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
+  gem 'pry'
 end
 
 group :test do
