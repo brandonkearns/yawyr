@@ -2,16 +2,25 @@
 
 <h2><%= @user.name %></h2>
 
+
 <ul>
-  <% current_user.books.each do |book| %>
-  <li>
-    <%= link_to book.shelf.name, shelf_path(book.shelf.id) %>|
-    <%= link_to book.title, book_path(book.id) %>
-    <br>
-    <%= image_tag book.thumbnail %>
-    <br>
-    <%= book.author %>
-    <%= link_to "delete", book, method: :delete, data: { confirm: 'Really?' } %>
-    <% end %>
-  </li>
+  <% most_recent_books(@user, 3).each do |book| %>
+    <li>
+      <%= link_to image_tag(book.thumbnail), book_path(book.id) %>
+    </li>
+  <% end %>
+</ul>
+
+<ul>
+  <% @user.books.each do |book| %>
+    <li>
+      <%= link_to book.shelf.name, shelf_path(book.shelf.id) %>|
+      <%= link_to book.title, book_path(book.id) %>
+      <br>
+      <%= image_tag book.thumbnail %>
+      <br>
+      <%= book.author %>
+      <%= link_to "delete", book, method: :delete, data: { confirm: 'Really?' } %>
+    </li>
+  <% end %>
 </ul>

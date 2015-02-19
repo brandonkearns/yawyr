@@ -1,4 +1,5 @@
 module BooksHelper
+
   def title(book)
     book['volumeInfo']['title']
   end
@@ -26,6 +27,11 @@ module BooksHelper
 
   def page_count(book)
     book['volumeInfo']['pageCount']
+  end
+
+  def most_recent_books(user, count=3)
+    #Returns last 3 books added to user's profile
+    user.books.reverse.first(count)
   end
 
 end
