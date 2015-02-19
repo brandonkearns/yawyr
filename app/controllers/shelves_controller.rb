@@ -4,10 +4,11 @@ class ShelvesController < ApplicationController
   before_action :correct_user,   except: [:new, :create, :index, :show]
 
   def index
-    @shelves = Shelf.all
+    @shelves = current_user.shelves
   end
 
   def show
+    @books = @shelf.books
     # @shelf = Shelf.find(params[:id])
   end
 

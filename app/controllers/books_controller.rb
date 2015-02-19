@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   before_action :correct_user, except: [:new, :create, :index, :show]
 
   def index
-    @books = Book.all
+    @books = current_user.books
   end
 
   def show
@@ -18,10 +18,11 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = current_user.books.new(book_params)
+    @shelf = current_user.shelves.find(book_params[:shelf_id])
+    @book = @shelf.books.new(book_params)
     if @book.save
       flash[:success] = "#{@book.title} has been added to your shelf!"
-      redirect_to books_path
+      redirect_to shelf_path(@shelf.id)
     else
       render 'new'
     end

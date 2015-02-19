@@ -1,3 +1,17 @@
 <% provide(:title, @user.name) %>
 
 <h2><%= @user.name %></h2>
+
+<ul>
+  <% current_user.books.each do |book| %>
+  <li>
+    <%= link_to book.shelf.name, shelf_path(book.shelf.id) %>|
+    <%= link_to book.title, book_path(book.id) %>
+    <br>
+    <%= image_tag book.thumbnail %>
+    <br>
+    <%= book.author %>
+    <%= link_to "delete", book, method: :delete, data: { confirm: 'Really?' } %>
+    <% end %>
+  </li>
+</ul>
