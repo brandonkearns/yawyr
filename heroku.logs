@@ -1,0 +1,179 @@
+2015-02-19T23:23:00.214455+00:00 heroku[run.6102]: Starting process with command `bundle exec rake db:drop db:create db:migrate`
+2015-02-19T23:23:00.884706+00:00 heroku[run.6102]: State changed from starting to up
+2015-02-19T23:23:04.597506+00:00 app[run.6102]: FATAL:  permission denied for database "postgres"
+2015-02-19T23:23:04.597535+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/postgresql_adapter.rb:651:in `connect'
+2015-02-19T23:23:04.597547+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+2015-02-19T23:23:04.597551+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+2015-02-19T23:23:04.597537+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/postgresql_adapter.rb:242:in `initialize'
+2015-02-19T23:23:04.597549+00:00 app[run.6102]: /app/vendor/ruby-2.0.0/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+2015-02-19T23:23:04.597534+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/postgresql_adapter.rb:651:in `new'
+2015-02-19T23:23:04.597542+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:436:in `new_connection'
+2015-02-19T23:23:04.597524+00:00 app[run.6102]: DETAIL:  User does not have CONNECT privilege.
+2015-02-19T23:23:04.597526+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/postgresql_adapter.rb:651:in `initialize'
+2015-02-19T23:23:04.597546+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+2015-02-19T23:23:04.597539+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/postgresql_adapter.rb:44:in `new'
+2015-02-19T23:23:04.597552+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+2015-02-19T23:23:04.597540+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/postgresql_adapter.rb:44:in `postgresql_connection'
+2015-02-19T23:23:04.597544+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:446:in `checkout_new_connection'
+2015-02-19T23:23:04.597554+00:00 app[run.6102]: /app/vendor/ruby-2.0.0/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+2015-02-19T23:23:04.597559+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:565:in `retrieve_connection'
+2015-02-19T23:23:04.597570+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/tasks/database_tasks.rb:128:in `block in drop_current'
+2015-02-19T23:23:04.597563+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/tasks/postgresql_database_tasks.rb:8:in `connection'
+2015-02-19T23:23:04.597562+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_handling.rb:87:in `connection'
+2015-02-19T23:23:04.597565+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/tasks/postgresql_database_tasks.rb:30:in `drop'
+2015-02-19T23:23:04.597557+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+2015-02-19T23:23:04.597569+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/tasks/database_tasks.rb:114:in `drop'
+2015-02-19T23:23:04.597577+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/tasks/database_tasks.rb:274:in `each_current_configuration'
+2015-02-19T23:23:04.597575+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/tasks/database_tasks.rb:274:in `each'
+2015-02-19T23:23:04.597580+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/tasks/database_tasks.rb:127:in `drop_current'
+2015-02-19T23:23:04.597599+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/task.rb:235:in `execute'
+2015-02-19T23:23:04.597587+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/task.rb:240:in `call'
+2015-02-19T23:23:04.597611+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+2015-02-19T23:23:04.597626+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/application.rb:106:in `each'
+2015-02-19T23:23:04.597594+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/task.rb:235:in `each'
+2015-02-19T23:23:04.597583+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/railties/databases.rake:28:in `block (2 levels) in <top (required)>'
+2015-02-19T23:23:04.597571+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/tasks/database_tasks.rb:275:in `block in each_current_configuration'
+2015-02-19T23:23:04.597560+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+2015-02-19T23:23:04.597618+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/application.rb:150:in `invoke_task'
+2015-02-19T23:23:04.597591+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/task.rb:240:in `block in execute'
+2015-02-19T23:23:04.597614+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/task.rb:165:in `invoke'
+2015-02-19T23:23:04.597605+00:00 app[run.6102]: /app/vendor/ruby-2.0.0/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+2015-02-19T23:23:04.597645+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/application.rb:176:in `standard_exception_handling'
+2015-02-19T23:23:04.597650+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/application.rb:75:in `run'
+2015-02-19T23:23:04.597642+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/application.rb:78:in `block in run'
+2015-02-19T23:23:04.597602+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/task.rb:179:in `block in invoke_with_call_chain'
+2015-02-19T23:23:04.632875+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/postgresql_adapter.rb:651:in `initialize'
+2015-02-19T23:23:04.597633+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/application.rb:115:in `run_with_threads'
+2015-02-19T23:23:04.632911+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/postgresql_adapter.rb:651:in `connect'
+2015-02-19T23:23:04.632913+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/postgresql_adapter.rb:242:in `initialize'
+2015-02-19T23:23:04.632930+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+2015-02-19T23:23:04.597623+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+2015-02-19T23:23:04.597662+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/bin/rake:23:in `<main>'
+2015-02-19T23:23:04.632973+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+2015-02-19T23:23:04.632922+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:436:in `new_connection'
+2015-02-19T23:23:04.632984+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_handling.rb:87:in `connection'
+2015-02-19T23:23:04.597638+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/application.rb:100:in `top_level'
+2015-02-19T23:23:04.632933+00:00 app[run.6102]: /app/vendor/ruby-2.0.0/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+2015-02-19T23:23:04.632909+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/postgresql_adapter.rb:651:in `new'
+2015-02-19T23:23:04.632940+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+2015-02-19T23:23:04.632918+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/postgresql_adapter.rb:44:in `new'
+2015-02-19T23:23:04.597653+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/bin/rake:33:in `<top (required)>'
+2015-02-19T23:23:04.597630+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/application.rb:106:in `block in top_level'
+2015-02-19T23:23:04.632924+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:446:in `checkout_new_connection'
+2015-02-19T23:23:04.633001+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/tasks/database_tasks.rb:107:in `block in create_current'
+2015-02-19T23:23:04.632990+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/tasks/postgresql_database_tasks.rb:8:in `connection'
+2015-02-19T23:23:04.632997+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/tasks/database_tasks.rb:93:in `create'
+2015-02-19T23:23:04.633059+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+2015-02-19T23:23:04.633006+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/tasks/database_tasks.rb:275:in `block in each_current_configuration'
+2015-02-19T23:23:04.597657+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/bin/rake:23:in `load'
+2015-02-19T23:23:04.632820+00:00 app[run.6102]: FATAL:  permission denied for database "postgres"
+2015-02-19T23:23:04.633106+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/application.rb:78:in `block in run'
+2015-02-19T23:23:04.633017+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/tasks/database_tasks.rb:106:in `create_current'
+2015-02-19T23:23:04.633010+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/tasks/database_tasks.rb:274:in `each'
+2015-02-19T23:23:04.633042+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/task.rb:179:in `block in invoke_with_call_chain'
+2015-02-19T23:23:04.633057+00:00 app[run.6102]: /app/vendor/ruby-2.0.0/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+2015-02-19T23:23:04.633088+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+2015-02-19T23:23:04.597712+00:00 app[run.6102]: Couldn't drop d421r88pc7ggc4
+2015-02-19T23:23:04.632920+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/postgresql_adapter.rb:44:in `postgresql_connection'
+2015-02-19T23:23:04.632928+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+2015-02-19T23:23:04.632993+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/tasks/postgresql_database_tasks.rb:17:in `create'
+2015-02-19T23:23:04.633026+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/task.rb:240:in `call'
+2015-02-19T23:23:04.633086+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/application.rb:150:in `invoke_task'
+2015-02-19T23:23:04.633099+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/application.rb:115:in `run_with_threads'
+2015-02-19T23:23:04.632824+00:00 app[run.6102]: DETAIL:  User does not have CONNECT privilege.
+2015-02-19T23:23:04.632970+00:00 app[run.6102]: /app/vendor/ruby-2.0.0/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+2015-02-19T23:23:04.632981+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+2015-02-19T23:23:04.633033+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/task.rb:235:in `each'
+2015-02-19T23:23:04.633102+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/application.rb:100:in `top_level'
+2015-02-19T23:23:04.633039+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/task.rb:235:in `execute'
+2015-02-19T23:23:04.633109+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/application.rb:176:in `standard_exception_handling'
+2015-02-19T23:23:04.633169+00:00 app[run.6102]: Couldn't create database for {"adapter"=>"postgresql", "encoding"=>"unicode", "database"=>"d421r88pc7ggc4", "pool"=>5, "username"=>"lbebvkyfxgzvis", "password"=>"lfzMYjQw3IEF-pM7_crrcjbJ6Q", "port"=>5432, "host"=>"ec2-54-83-204-78.compute-1.amazonaws.com"}
+2015-02-19T23:23:04.633023+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/railties/databases.rake:17:in `block (2 levels) in <top (required)>'
+2015-02-19T23:23:04.633095+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/application.rb:106:in `block in top_level'
+2015-02-19T23:23:04.633060+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/task.rb:165:in `invoke'
+2015-02-19T23:23:04.633118+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/bin/rake:33:in `<top (required)>'
+2015-02-19T23:23:04.632977+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:565:in `retrieve_connection'
+2015-02-19T23:23:04.632937+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+2015-02-19T23:23:04.633013+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/activerecord-4.2.0/lib/active_record/tasks/database_tasks.rb:274:in `each_current_configuration'
+2015-02-19T23:23:04.633030+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/task.rb:240:in `block in execute'
+2015-02-19T23:23:04.633092+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/application.rb:106:in `each'
+2015-02-19T23:23:04.633115+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/gems/rake-10.4.2/lib/rake/application.rb:75:in `run'
+2015-02-19T23:23:04.633125+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/bin/rake:23:in `<main>'
+2015-02-19T23:23:04.633121+00:00 app[run.6102]: /app/vendor/bundle/ruby/2.0.0/bin/rake:23:in `load'
+2015-02-19T23:23:05.663335+00:00 app[run.6102]:   [1m[36m (146.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+2015-02-19T23:23:05.905432+00:00 app[run.6102]:   [1m[35mSQL (2.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["vers
+ion", "20150212231239"]]
+2015-02-19T23:23:05.741382+00:00 app[run.6102]: == 20150212231239 CreateUsers: migrating ======================================
+2015-02-19T23:23:05.732392+00:00 app[run.6102]:   [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+2015-02-19T23:23:05.741335+00:00 app[run.6102]:   [1m[35m (1.7ms)[0m  BEGIN
+2015-02-19T23:23:05.887111+00:00 app[run.6102]:   [1m[36m (144.3ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+2015-02-19T23:23:05.887202+00:00 app[run.6102]:    -> 0.1456s
+2015-02-19T23:23:05.741506+00:00 app[run.6102]: -- create_table(:users)
+2015-02-19T23:23:05.887261+00:00 app[run.6102]: == 20150212231239 CreateUsers: migrated (0.1457s) =============================
+2015-02-19T23:23:05.887265+00:00 app[run.6102]: 
+2015-02-19T23:23:05.909058+00:00 app[run.6102]:   [1m[36m (3.3ms)[0m  [1mCOMMIT[0m
+2015-02-19T23:23:05.739098+00:00 app[run.6102]: Migrating to CreateUsers (20150212231239
+)
+2015-02-19T23:23:05.726700+00:00 app[run.6102]:   [1m[35m (57.0ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+2015-02-19T23:23:05.909114+00:00 app[run.6102]: Migrating to CreateShelves (20150212232202)
+2015-02-19T23:23:05.911427+00:00 app[run.6102]: -- create_table(:shelves)
+2015-02-19T23:23:05.911351+00:00 app[run.6102]: == 20150212232202 CreateShelves: migrating ====================================
+2015-02-19T23:23:05.911316+00:00 app[run.6102]:   [1m[35m (1.7ms)[0m  BEGIN
+2015-02-19T23:23:06.287115+00:00 app[run.6102]: -- add_column(:users, :remember_token, :string)
+2015-02-19T23:23:06.286971+00:00 app[run.6102]:   [1m[35m (7.0ms)[0m  BEGIN
+2015-02-19T23:23:06.279041+00:00 app[run.6102]:   [1m[36m (3.4ms)[0m  [1mCOMMIT[0m
+2015-02-19T23:23:06.291297+00:00 app[run.6102]:   [1m[36m (2.2ms)[0m  [1mALTER TABLE "users" ADD "remember_token" character varying[0m
+2015-02-19T23:23:06.279137+00:00 app[run.6102]: Migrating to AddRememberTokenToUsers (20150215230639)
+2015-02-19T23:23:06.287022+00:00 app[run.6102]: == 20150215230639 AddRememberTokenToUsers: migrating ==========================
+2015-02-19T23:23:06.291404+00:00 app[run.6102]:    -> 0.0042s
+2015-02-19T23:23:06.291505+00:00 app[run.6102]: == 20150215230639 AddRememberTokenToUsers: migrated (0.0044s) =================
+2015-02-19T23:23:06.291526+00:00 app[run.6102]: 
+2015-02-19T23:23:06.298697+00:00 app[run.6102]:   [1m[35mSQL (1.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150215230639"]]
+2015-02-19T23:23:06.524547+00:00 app[run.6102]:   [1m[35mSQL (2.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150216155548"]]
+2015-02-19T23:23:06.275313+00:00 app[run.6102]:   [1m[35mSQL (1.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150212232202"]]
+2015-02-19T23:23:06.516351+00:00 app[run.6102]: == 20150216155548 AddAdminToUsers: migrated (0.2098s) =========================
+2015-02-19T23:23:06.269419+00:00 app[run.6102]:   [1m[36m (357.4ms)[0m  [1mCREATE TABLE "shelves" ("id" serial primary key, "name" character varying, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+2015-02-19T23:23:06.269554+00:00 app[run.6102]:    -> 0.3580s
+2015-02-19T23:23:06.269628+00:00 app[run.6102]: 
+2015-02-19T23:23:06.306470+00:00 app[run.6102]: == 20150216155548 AddAdminToUsers: migrating ==================================
+2015-02-19T23:23:06.516357+00:00 app[run.6102]: 
+2015-02-19T23:23:06.302165+00:00 app[run.6102]:   [1m[36m (3.2ms)[0m  [1mCOMMIT[0m
+2015-02-19T23:23:06.269626+00:00 app[run.6102]: == 20150212232202 CreateShelves: migrated (0.3582s) ===========================
+2015-02-19T23:23:06.302230+00:00 app[run.6102]: Migrating to AddAdminToUsers (20150216155548)
+2015-02-19T23:23:06.306411+00:00 app[run.6102]:   [1m[35m (3.6ms)[0m  BEGIN
+2015-02-19T23:23:06.516226+00:00 app[run.6102]:   [1m[36m (205.7ms)[0m  [1mALTER TABLE "users" ADD "admin" boolean DEFAULT 'f'[0m
+2015-02-19T23:23:06.516294+00:00 app[run.6102]:    -> 0.2096s
+2015-02-19T23:23:06.306575+00:00 app[run.6102]: -- add_column(:users, :admin, :boolean, {:default=>false})
+2015-02-19T23:23:06.607799+00:00 app[run.6102]:   [1m[36m (82.7ms)[0m  [1mCOMMIT[0m
+2015-02-19T23:23:06.656646+00:00 app[run.6102]:    -> 0.0460s
+2015-02-19T23:23:06.656565+00:00 app[run.6102]:   [1m[36m (40.2ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_remember_token" ON "users"  ("remember_token")[0m
+2015-02-19T23:23:06.607856+00:00 app[run.6102]: Migrating to AddIndexToUsersRememberToken (20150216160112)
+2015-02-19T23:23:06.662207+00:00 app[run.6102]:   [1m[35mSQL (1.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150216160112"]]
+2015-02-19T23:23:06.745830+00:00 app[run.6102]:   [1m[36m (17.8ms)[0m  [1mCOMMIT[0m
+2015-02-19T23:23:06.748312+00:00 app[run.6102]:   [1m[35m (1.8ms)[0m  BEGIN
+2015-02-19T23:23:06.610366+00:00 app[run.6102]:   [1m[35m (1.8ms)[0m  BEGIN
+2015-02-19T23:23:06.610417+00:00 app[run.6102]: == 20150216160112 AddIndexToUsersRememberToken: migrating =====================
+2015-02-19T23:23:06.656712+00:00 app[run.6102]: 
+2015-02-19T23:23:06.610517+00:00 app[run.6102]: -- add_index(:users, :remember_token, {:unique=>true})
+2015-02-19T23:23:06.656709+00:00 app[run.6102]: == 20150216160112 AddIndexToUsersRememberToken: migrated (0.0462s) ============
+2015-02-19T23:23:06.793742+00:00 app[run.6102]: 
+2015-02-19T23:23:06.793684+00:00 app[run.6102]:    -> 0.0451s
+2015-02-19T23:23:06.665737+00:00 app[run.6102]: Migrating to AddIndexToUsersEmail (20150216160254)
+2015-02-19T23:23:06.793621+00:00 app[run.6102]:   [1m[36m (39.8ms)[0m  [1mCREATE  INDEX  "index_shelves_on_user_id" ON "shelves"  ("user_id")[0m
+2015-02-19T23:23:06.748357+00:00 app[run.6102]: == 20150216220552 AddIndexToShelvesUserId: migrating ==========================
+2015-02-19T23:23:06.799377+00:00 app[run.6102]:   [1m[35mSQL (1.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150216220552"]]
+2015-02-19T23:23:06.793737+00:00 app[run.6102]: == 20150216220552 AddIndexToShelvesUserId: migrated (0.0453s) =================
+2015-02-19T23:23:06.745873+00:00 app[run.6102]: Migrating to AddIndexToShelvesUserId (20150216220552)
+2015-02-19T23:23:06.748471+00:00 app[run.6102]: -- add_index(:shelves, :user_id)
+2015-02-19T23:23:06.667997+00:00 app[run.6102]:   [1m[35m (1.7ms)[0m  BEGIN
+2015-02-19T23:23:06.668034+00:00 app[run.6102]: == 20150216160254 AddIndexToUsersEmail: migrating =============================
+2015-02-19T23:23:06.668139+00:00 app[run.6102]: -- add_index(:users, :email, {:unique=>true})
+2015-02-19T23:23:06.665610+00:00 app[run.6102]:   [1m[36m (3.2ms)[0m  [1mCOMMIT[0m
+2015-02-19T23:23:06.721347+00:00 app[run.6102]:   [1m[36m (48.0ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+2015-02-19T23:23:06.721498+00:00 app[run.6102]: == 20150216160254 AddIndexToUsersEmail: migrated (0.0534s) ====================
+2015-02-19T23:23:06.721503+00:00 app[run.6102]: 
+2015-02-19T23:23:06.721447+00:00 app[run.6102]:    -> 0.0532s
+2015-02-19T23:23:06.727751+00:00 app[run.6102]:   [1m[35mSQL (2.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150216160254"]]
+2015-02-19T23:23:06.803139+00:00 app[run.6102]:   [1m[36m (3.5ms)[0m  [1mCOMMIT[0m
+2015-02-19T23:23:07.582441+00:00 heroku[run.6102]: Process exited with status 0
+2015-02-19T23:23:07.596078+00:00 heroku[run.6102]: State changed from up to complete
