@@ -9,22 +9,20 @@
 
 
 <% @books["items"].each do |book| %>
-<div class="container">
-  <h5><%= title(book) %></h5>
-  <h5><%= authors(book) %></h5>
-  <%= thumbnail(book, { height: '250px' }) %>
-  <h5><%= snippet(book) %></h5>
-  <h5><%= page_count(book) %> pages</h5>
+  <div class="container">
+    <h5><%= title(book) %></h5>
+    <h5><%= authors(book) %></h5>
+    <%= thumbnail(book, { height: '250px' }) %>
+    <h5><%= snippet(book) %></h5>
+    <h5><%= page_count(book) %> pages</h5>
 
-  <%= form_for(:book, url: books_path) do |f| %>
-    <%= f.select(:shelf_id, options_for_select(current_user.shelves.map { |s| [s.name, s.id] }))  %>
-    <%= f.hidden_field :title, value: title(book) %>
-    <%= f.hidden_field :author, value: authors(book) %>
-    <%= f.hidden_field :thumbnail, value: thumbnail_url(book) %>
-    <%= f.hidden_field :page_count, value: page_count(book) %>
-    <button type="button">
-      <%= submit_tag 'Add to Shelf', :class=> 'btn btn-default btn-sm' %>
-    </button>
-  <% end %>
-</div>
+    <%= form_for(:book, url: books_path) do |f| %>
+      <%= f.select(:shelf_id, options_for_select(current_user.shelves.map { |s| [s.name, s.id] }), {}, class: 'form-control')  %>
+      <%= f.hidden_field :title, value: title(book) %>
+      <%= f.hidden_field :author, value: authors(book) %>
+      <%= f.hidden_field :thumbnail, value: thumbnail_url(book) %>
+      <%= f.hidden_field :page_count, value: page_count(book) %>
+      <%= f.submit 'Add to Shelf', :class=> 'btn btn-default btn-sm' %>
+    <% end %>
+  </div>
 <% end %>
