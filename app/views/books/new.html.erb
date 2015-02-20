@@ -1,30 +1,42 @@
-<%= form_tag new_book_path, :method => 'get' do %>
-  <div class="form-group">
-    <%= text_field_tag :query, params[:query], :class => 'form-control' %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <%= form_tag new_book_path, :method => 'get' do %>
+        <div class="form-group">
+          <%= text_field_tag :query, params[:query], :class => 'form-control' %>
+        </div>
+    </div>
+    <div class="col-sm-2 col-md-offset-4">
+          <%= submit_tag 'Search', :class => 'btn btn-primary' %>
+      <% end %>
+    </div>
   </div>
-    <%= submit_tag 'Search', :class => 'btn btn-primary' %>
-<% end %>
-
+</div>
 <br>
-
 
 <% @books["items"].each do |book| %>
   <div class="container">
     <div class="row">
-      <h5><%= title(book) %></h5>
-      <h5><%= authors(book) %></h5>
-      <%= thumbnail(book, { height: '250px' }) %>
-      <h5><%= snippet(book) %></h5>
-      <h5><%= page_count(book) %> pages</h5>
+      <div class="col-sm-4">
+        <h5><%= title(book) %></h5>
+        <h5><%= authors(book) %></h5>
+        <%= thumbnail(book, { height: '250px' }) %>
+        <h5><%= page_count(book) %> pages</h5>
+      </div>
 
-      <%= form_for(:book, url: books_path) do |f| %>
-        <%= f.select(:shelf_id, options_for_select(current_user.shelves.map { |s| [s.name, s.id] }), {}, class: 'form-control')  %>
-        <%= f.hidden_field :title, value: title(book) %>
-        <%= f.hidden_field :author, value: authors(book) %>
-        <%= f.hidden_field :thumbnail, value: thumbnail_url(book) %>
-        <%= f.hidden_field :page_count, value: page_count(book) %>
-        <%= f.submit 'Add to Shelf', :class=> 'btn btn-default btn-sm' %>
-      <% end %>
+      <div class="col-sm-4">
+        <h5><%= snippet(book) %></h5>
+      </div>
+      <div class="col-sm-4">
+        <%= form_for(:book, url: books_path) do |f| %>
+          <%= f.select(:shelf_id, options_for_select(current_user.shelves.map { |s| [s.name, s.id] }), {}, class: 'form-control')  %>
+          <%= f.hidden_field :title, value: title(book) %>
+          <%= f.hidden_field :author, value: authors(book) %>
+          <%= f.hidden_field :thumbnail, value: thumbnail_url(book) %>
+          <%= f.hidden_field :page_count, value: page_count(book) %>
+          <%= f.submit 'Add to Shelf', :class=> 'btn btn-default btn-sm' %>
+        <% end %>
+      </div>
     </div>
   </div>
 <% end %>
