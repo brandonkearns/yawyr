@@ -13,13 +13,18 @@ module BooksHelper
     images?(book) ? (image_tag thumbnail_url(book), options) : 'no image'
   end
 
-  def snippet(book)
-    book["searchInfo"]
-  end
-
   def images?(book)
     !!book['volumeInfo']['imageLinks']
   end
+
+  def snippet(book)
+    snippet?(book) ? book["searchInfo"]["textSnippet"] : 'There is no text snippet available for this song.'
+  end
+
+  def snippet?(book)
+    !!book['searchInfo']
+  end
+
 
   def thumbnail_url(book)
     images?(book) ? book['volumeInfo']['imageLinks']['thumbnail'] : 'no image'
