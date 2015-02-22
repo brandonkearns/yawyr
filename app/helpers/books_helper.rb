@@ -18,7 +18,7 @@ module BooksHelper
   end
 
   def snippet(book)
-    snippet?(book) ? book["searchInfo"]["textSnippet"] : 'There is no text snippet available for this song.'
+    snippet?(book) ? book["searchInfo"]["textSnippet"] : '[There is no text snippet available for this book.]'
   end
 
   def snippet?(book)

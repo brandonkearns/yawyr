@@ -53,11 +53,11 @@ class BooksController < ApplicationController
     end
 
     def set_book
-      @book = Book.find(params[:id])
+      @book = current_user.books.find(params[:id])
     end
 
     def correct_user
-      unless current_user?(@book.user) || current_user.admin?
+      unless current_user?(@book.shelf.user) || current_user.admin?
         redirect_to user_path(current_user)
       end
     end
