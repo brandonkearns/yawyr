@@ -1,16 +1,17 @@
-<% provide(:title, current_user.shelves.name) %>
-
-<h1><%= @shelf.name %></h1>
-
-<ul>
-  <% @books.each do |book| %>
-  <li>
-    <%= link_to book.title, book_path(book.id) %>
-    <br>
-    <%= image_tag book.thumbnail %>
-    <br>
-    <%= book.author %>
-    <%= link_to "delete", book, method: :delete, data: { confirm: 'Really?' } %>
-    <% end %>
-  </li>
-</ul>
+<% provide(:title, @shelf.name) %>
+<div class="container">
+  <h1><%= @shelf.name %></h1>
+    <div class="row">
+      <% @books.each do |book| %>
+      <div class="col-md-4">
+        <%= link_to book.title, book_path(book.id) %>
+        <br>
+        <%= image_tag book.thumbnail %>
+        <br>
+        <%= book.author %> |
+        <%= link_to "delete", book, method: :delete, data: { confirm: 'Really?' }, class: 'btn btn-danger btn-xs' %>
+        <br>
+      </div>
+      <% end %>
+    </div>
+</div>

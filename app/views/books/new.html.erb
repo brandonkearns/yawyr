@@ -6,6 +6,7 @@
           <%= text_field_tag :query, params[:query], :class => 'form-control' %>
         </div>
     </div>
+    
     <div class="col-sm-2 col-md-offset-1">
           <%= submit_tag 'Search', :class => 'btn btn-primary' %>
       <% end %>
@@ -28,7 +29,7 @@
       <div class="col-sm-4">
         <h5><%= snippet(book) %></h5>
       </div>
-      
+
       <div class="col-sm-4">
         <%= form_for(:book, url: books_path) do |f| %>
           <%= f.select(:shelf_id, options_for_select(current_user.shelves.map { |s| [s.name, s.id] }), {}, class: 'form-control')  %>
