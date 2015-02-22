@@ -1,16 +1,25 @@
 <% provide(:title, 'Sign In') %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-body text-center">
+          <h1>Sign In</h1>
 
-<h1>Sign In</h1>
+          <%= form_for(:session, url: sessions_path) do |f| %>
 
-<%= form_for(:session, url: sessions_path) do |f| %>
+            <%= f.label :email %>
+            <%= f.text_field :email, autofocus: true %>
 
-  <%= f.label :email %>
-  <%= f.text_field :email, autofocus: true %>
+            <br>
+            <%= f.label :password %>
+            <%= f.password_field :password %>
 
-  <br>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <br>
-  <%= f.submit 'Sign In' %>
-<% end %>
+            <br>
+            <%= f.submit 'Sign In', class: 'btn btn-default' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

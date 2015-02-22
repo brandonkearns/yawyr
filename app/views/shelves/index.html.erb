@@ -1,13 +1,15 @@
 <% provide(:title, 'My Shelves') %>
-<h1>My Shelves</h1>
+<div class="container">
+    <h1>My Shelves</h1>
 
-<ul>
-  <% @shelves.each do |shelf| %>
-    <li>
-      <%= link_to shelf.name, shelf_path(shelf.id) %> 
-      <% if signed_in? %>
-      | <%= link_to "delete", shelf, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <ul>
+      <% @shelves.each do |shelf| %>
+        <li>
+          <%= link_to shelf.name, shelf_path(shelf.id) %> 
+          <% if signed_in? %>
+          | <%= link_to "delete", shelf, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </li>
       <% end %>
-    </li>
-  <% end %>
-</ul>
+    </ul>
+</div>
