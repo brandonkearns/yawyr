@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-md-6 col-sm-6 col-xs-6">
       <% most_recent_books(@user, 3).each do |book| %>
-        <%= link_to image_tag(book.thumbnail), book_path(book.id) %>
+        <%= link_to image_tag(book.thumbnail, class: 'img-rounded'), book_path(book.id) %>
       <% end %>
     </div>
 
