@@ -1,26 +1,24 @@
 <% provide(:title, @user.name) %>
+<div class="container">
+  <h2><%= @user.name %></h2>
+  <div class="row">
+    <div class="col-md-6 col-sm-6 col-xs-6">
+      <% most_recent_books(@user, 3).each do |book| %>
+        <%= link_to image_tag(book.thumbnail), book_path(book.id) %>
+      <% end %>
+    </div>
 
-<h2><%= @user.name %></h2>
-
-
-<ul>
-  <% most_recent_books(@user, 3).each do |book| %>
-    <li>
-      <%= link_to image_tag(book.thumbnail), book_path(book.id) %>
-    </li>
-  <% end %>
-</ul>
-
-<ul>
-  <% @user.books.each do |book| %>
-    <li>
-      <%= link_to book.shelf.name, shelf_path(book.shelf.id) %>|
-      <%= link_to book.title, book_path(book.id) %>
-      <br>
-      <%= image_tag book.thumbnail %>
-      <br>
-      <%= book.author %>
-      <%= link_to "delete", book, method: :delete, data: { confirm: 'Really?' } %>
-    </li>
-  <% end %>
-</ul>
+    <div class="col-md-6 col-sm-6 col-xs-6">      
+      <% @user.books.each do |book| %>
+        <%= link_to book.shelf.name, shelf_path(book.shelf.id) %>|
+        <%= link_to book.title, book_path(book.id) %>
+        <br>
+        <%= image_tag book.thumbnail %>
+        <br>
+        <%= book.author %>
+        <%= link_to "delete", book, method: :delete, data: { confirm: 'Really?' } %>
+        <br>
+      <% end %>
+    </div>
+  </div>
+</div>
