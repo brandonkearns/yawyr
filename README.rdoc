@@ -1,28 +1,20 @@
-== README
+== wyrd
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+wyrd is a web application that allows users to create shelves of books based on criteria of their choosing. wyrd users can search for books using the app's implementation of the GoogleBooks API. This allows a user to add nearly any book to his or her shelves!
 
-Things you may want to cover:
+wyrd was developed as a project at General Assembly in Atlanta, GA over a week-long sprint
 
-* Ruby version
+Technologies used:
 
-* System dependencies
+* Ruby
 
-* Configuration
+* Rails
 
-* Database creation
+* Bootstrap
 
-* Database initialization
+* PostgreSQL
 
-* How to run the test suite
+* GoogleBooks API
 
-* Services (job queues, cache servers, search engines, etc.)
+* RSpec
 
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
