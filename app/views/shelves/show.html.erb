@@ -3,15 +3,17 @@
   <h1><%= @shelf.name %></h1>
     <div class="row">
       <% @books.each do |book| %>
-      <div class="col-md-3">
+      <div class="col-md-3 col-xs-6">
         <%= link_to book.title, book_path(book.id) %>
         <br>
         <%= book.author %>
         <br>
         <%= image_tag book.thumbnail %>
         <br>
+        <% if current_user?(@shelf.user) %>
         <%= link_to "delete", book, method: :delete, data: { confirm: 'Really?' }, class: 'btn btn-danger btn-xs' %>
         <br>
+        <% end %>
       </div>
       <% end %>
     </div>
