@@ -4,7 +4,12 @@ class ShelvesController < ApplicationController
   before_action :correct_user,   except: [:new, :create, :index, :show]
 
   def index
-    @shelves = current_user.shelves
+    if !signed_in?
+      flash[:success] = "Sign in and make your own shelves! wyrd."
+      redirect_to signin_path
+    else
+      @shelves = current_user.shelves
+    end
   end
 
   def show

@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_book, only: [:edit, :update, :destroy]
   before_action :signed_in_user, except: [:index, :show]
   before_action :correct_user, except: [:new, :create, :index, :show]
 
@@ -8,6 +8,11 @@ class BooksController < ApplicationController
   end
 
   def show
+    if !current_user?(current_user)
+      redirect_to new_book_path
+    else
+      set_book
+    end
   end
 
   def new
